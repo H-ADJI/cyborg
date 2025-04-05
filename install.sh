@@ -10,6 +10,7 @@ setup_repo="H-ADJI/cyborg"
 # Download Folder
 # -----------------------------------------------------
 download_folder="$HOME/.cyborg"
+mkdir -p "$download_folder"
 _workdir() {
     cd "$HOME/${download_folder}" || return 1
 }

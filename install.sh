@@ -59,7 +59,7 @@ _installYay() {
     _installPackages "go"
     git clone https://aur.archlinux.org/yay.git $download_folder/yay
     cd $download_folder/yay
-    makepkg -si
+    makepkg -si --noconfirm
     cd $download_folder
 }
 _installYay

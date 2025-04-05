@@ -56,6 +56,7 @@ _installPackages() {
 _installYay() {
     _installPackages "base-devel"
     _installPackages "git"
+    _installPackages "go"
     git clone https://aur.archlinux.org/yay-bin.git $download_folder/yay
     cd $download_folder/yay
     makepkg -si

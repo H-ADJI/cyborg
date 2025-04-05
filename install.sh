@@ -59,7 +59,6 @@ _installYay() {
     git clone https://aur.archlinux.org/yay.git $download_folder/yay
     cd $download_folder/yay
     makepkg -si
-    echo ":: yay has been installed successfully."
     cd $download_folder
 }
 _installYay

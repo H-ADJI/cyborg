@@ -12,7 +12,7 @@ setup_repo="H-ADJI/cyborg"
 download_folder="$HOME/.cyborg"
 mkdir -p "$download_folder"
 _workdir() {
-    cd "$HOME/${download_folder}" || return 1
+    cd "$download_folder" || return 1
 }
 # -----------------------------------------------------
 # Lib Folder

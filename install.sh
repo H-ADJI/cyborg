@@ -11,9 +11,10 @@ setup_repo="H-ADJI/cyborg"
 # -----------------------------------------------------
 download_folder="$HOME/.cyborg"
 mkdir -p "$download_folder"
-_workdir() {
-    cd "$download_folder" || return 1
-}
+# Create download_folder if not exists
+if [ ! -d "$download_folder" ]; then
+    mkdir -p "$download_folder"
+fi
 # -----------------------------------------------------
 # Lib Folder
 # -----------------------------------------------------
@@ -21,9 +22,43 @@ lib_folder="$download_folder/cyborg/lib"
 # -----------------------------------------------------
 # System update and basic utilities
 # -----------------------------------------------------
-_workdir
-sudo pacman -Syu --noconfirm
-sudo pacman -S ---noconfirm -needed curl git base-devel
-git clone https://aur.archlinux.org/yay-bin.git "$download_folder"
-cd "${download_folder}/yay-bin" || return 1
-makepkg -si --noconfirm
+sudo pacman -Sy
+# Check if package is installed
+_isInstalled() {
+    package="$1"
+    check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+    if [ -n "${check}" ]; then
+        echo 0 #'0' means 'true' in Bash
+        return #true
+    fi
+    echo 1 #'1' means 'false' in Bash
+    return #false
+}
+
+# Install packages
+_installPackages() {
+    toInstall=()
+    for pkg; do
+        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
+            echo ":: ${pkg} is already installed."
+            continue
+        fi
+        toInstall+=("${pkg}")
+    done
+    if [[ "${toInstall[@]}" == "" ]]; then
+        # echo "All pacman packages are already installed.";
+        return
+    fi
+    printf "Package not installed:\n%s\n" "${toInstall[@]}"
+    sudo pacman --noconfirm -S "${toInstall[@]}"
+}
+
+_installYay() {
+    _installPackages "base-devel"
+    git clone https://aur.archlinux.org/yay.git $download_folder/yay
+    cd $download_folder/yay
+    makepkg -si
+    echo ":: yay has been installed successfully."
+    cd $download_folder
+}
+_installYay

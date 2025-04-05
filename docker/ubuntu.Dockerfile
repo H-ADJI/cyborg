@@ -1,22 +1,23 @@
-FROM archlinux:latest
+FROM ubuntu:24.04
 LABEL maintainer="H-ADJI <https://github.com/H-ADJI>"
-
 # Set noninteractive mode
 ENV TERM xterm-256color
 ENV LANG en_US.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN pacman -Syu --noconfirm \
-  && pacman -S --noconfirm git curl sudo base-devel
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y curl sudo
 
 # Create a non-root user to run Ansible commands
 ARG USER=khalil
 ARG PASS
 RUN useradd -m ${USER} &&  echo "${USER}:${PASS}" | chpasswd 
-RUN echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers
+RUN usermod -aG sudo ${USER}
 # Switch to the non-root user
 USER ${USER}
 
 # Set the working directory
 WORKDIR /home/${USER}
 
+# If you want to keep the container running for interactive use
 CMD ["/bin/bash"]

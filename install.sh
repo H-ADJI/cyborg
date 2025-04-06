@@ -89,24 +89,6 @@ EOF
 echo "Cyborg Arch Setup"
 echo -e "${NONE}"
 
-while true; do
-    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
-    case $yn in
-        [Yy]*)
-            echo ":: Installation started."
-            echo
-            break
-            ;;
-        [Nn]*)
-            echo ":: Installation canceled"
-            exit
-            ;;
-        *)
-            echo ":: Please answer yes or no."
-            ;;
-    esac
-done
-
 sudo pacman -Sy
 # Install required packages
 echo ":: Checking that required packages are installed..."

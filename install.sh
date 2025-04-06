@@ -45,8 +45,7 @@ _installPackages() {
         fi
         toInstall+=("${pkg}")
     done
-    if [[ "${toInstall[@]}" == "" ]]; then
-        # echo "All pacman packages are already installed.";
+    if [[ "${toInstall[*]}" == "" ]]; then
         return
     fi
     printf "Package not installed:\n%s\n" "${toInstall[@]}"
@@ -57,9 +56,9 @@ _installYay() {
     _installPackages "base-devel"
     _installPackages "git"
     _installPackages "go"
-    git clone https://aur.archlinux.org/yay.git $download_folder/yay
-    cd $download_folder/yay
+    git clone https://aur.archlinux.org/yay.git "$download_folder/yay"
+    cd "$download_folder/yay" || return 1
     makepkg -si --noconfirm
-    cd $download_folder
+    cd "$download_folder" || return 1
 }
 _installYay

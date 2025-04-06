@@ -19,10 +19,16 @@ fi
 # Lib Folder
 # -----------------------------------------------------
 lib_folder="$download_folder/cyborg/lib"
-# -----------------------------------------------------
-# System update and basic utilities
-# -----------------------------------------------------
-sudo pacman -Sy
+# Check if command exists
+_checkCommandExists() {
+    package="$1"
+    if ! command -v "$package" >/dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
 # Check if package is installed
 _isInstalled() {
     package="$1"
@@ -53,12 +59,64 @@ _installPackages() {
 }
 
 _installYay() {
-    _installPackages "base-devel"
-    _installPackages "git"
-    _installPackages "go"
     git clone git clone --depth 1 --branch next https://aur.archlinux.org/yay.git "$download_folder/yay"
     cd "$download_folder/yay" || return 1
     makepkg -si --noconfirm
     cd "$download_folder" || return 1
 }
-_installYay
+# -----------------------------------------------------
+# System update and basic utilities
+# -----------------------------------------------------
+# Required packages for the installer
+packages=(
+    "base-devel"
+    "wget"
+    "gum"
+    "git"
+    "go"
+)
+# Some colors
+GREEN='\033[0;32m'
+NONE='\033[0m'
+# Prompt
+echo -e "${GREEN}"
+cat <<"EOF"
+   ____         __       ____
+  /  _/__  ___ / /____ _/ / /__ ____
+ _/ // _ \(_-</ __/ _ `/ / / -_) __/
+/___/_//_/___/\__/\_,_/_/_/\__/_/
+EOF
+echo "Cyborg Arch Setup"
+echo -e "${NONE}"
+
+while true; do
+    read -rp "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
+    case $yn in
+        [Yy]*)
+            echo ":: Installation started."
+            echo
+            break
+            ;;
+        [Nn]*)
+            echo ":: Installation canceled"
+            exit
+            ;;
+        *)
+            echo ":: Please answer yes or no."
+            ;;
+    esac
+done
+
+sudo pacman -Sy
+# Install required packages
+echo ":: Checking that required packages are installed..."
+_installPackages "${packages[@]}"
+
+# Install yay if needed
+if _checkCommandExists "yay"; then
+    echo ":: yay is already installed"
+else
+    echo ":: The installer requires yay. yay will be installed now"
+    _installYay
+fi
+echo

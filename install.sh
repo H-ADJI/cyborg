@@ -90,7 +90,7 @@ echo "Cyborg Arch Setup"
 echo -e "${NONE}"
 
 while true; do
-    read "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
+    read -p "DO YOU WANT TO START THE INSTALLATION NOW? (Yy/Nn): " yn
     case $yn in
         [Yy]*)
             echo ":: Installation started."

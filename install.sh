@@ -1,6 +1,5 @@
 #!/bin/bash
 clear
-sudo -v
 
 # -----------------------------------------------------
 # Repositories
@@ -59,7 +58,7 @@ _installYay() {
     _installPackages "go"
     git clone https://aur.archlinux.org/yay.git "$download_folder/yay"
     cd "$download_folder/yay" || return 1
-    makepkg -si --noconfirm
+    sudo makepkg -si --noconfirm
     cd "$download_folder" || return 1
 }
 _installYay

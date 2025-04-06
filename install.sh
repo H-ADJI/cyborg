@@ -53,11 +53,10 @@ _installPackages() {
 }
 
 _installYay() {
-    sudo -v
     _installPackages "base-devel"
     _installPackages "git"
     _installPackages "go"
-    git clone https://aur.archlinux.org/yay.git "$download_folder/yay"
+    git clone git clone --depth 1 --branch next https://aur.archlinux.org/yay.git "$download_folder/yay"
     cd "$download_folder/yay" || return 1
     makepkg -si --noconfirm
     cd "$download_folder" || return 1

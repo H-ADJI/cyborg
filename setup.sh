@@ -24,7 +24,7 @@ cloneRepos() {
     git clone --depth 1 https://github.com/H-ADJI/dotfiles
     git clone --depth 1 https://github.com/H-ADJI/cyborg
 }
-USERNAME="$(logname)"
+USERNAME="$(whoami)"
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
     sudo pacman -Sy

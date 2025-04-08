@@ -36,7 +36,7 @@ if [ "$DISTRO" = "arch" ]; then
     )
     pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
     cloneRepos
-    source /home/$USERNAME/cyborg/lib/arch-setup.sh
+    source /home/khalil/cyborg/lib/arch-setup.sh
 else
     apt update && apt upgrade -y
     toInstall=(
@@ -45,6 +45,6 @@ else
     )
     apt install -y "${toInstall[@]}"
     cloneRepos
-    source /home/$USERNAME/cyborg/lib/ubuntu-setup.sh
+    source /home/khalil/cyborg/lib/ubuntu-setup.sh
 fi
 launch_setup

@@ -1,11 +1,3 @@
-# -----------------------------------------------------
-# Download Folder
-# -----------------------------------------------------
-download_folder="$HOME/.cyborg"
-mkdir -p "$download_folder"
-if [ ! -d "$download_folder" ]; then
-    mkdir -p "$download_folder"
-fi
 _checkCommandExists() {
     package="$1"
     if ! command -v "$package" >/dev/null; then
@@ -15,10 +7,10 @@ _checkCommandExists() {
     fi
 }
 _installYay() {
-    git clone git clone --depth 1 --branch next https://aur.archlinux.org/yay.git "$download_folder"
-    cd "$download_folder/yay" || return 1
+    git clone git clone --depth 1 --branch next https://aur.archlinux.org/yay.git
+    cd "yay" || return 1
     makepkg -si --noconfirm
-    cd "$download_folder" || return 1
+    cd "/home/khalil/" || return 1
 }
 
 installPackageManager() {

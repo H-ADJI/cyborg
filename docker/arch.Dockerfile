@@ -6,7 +6,7 @@ ENV TERM xterm-256color
 ENV LANG en_US.UTF-8
 
 RUN pacman -Syu --noconfirm \
-  && pacman -S --noconfirm git curl sudo base-devel
+  && pacman -S --noconfirm curl base-devel
 
 # Create a non-root user to run Ansible commands
 ARG USER=khalil
@@ -18,5 +18,5 @@ USER ${USER}
 
 # Set the working directory
 WORKDIR /home/${USER}
-
+RUN echo "alias dotinstall='curl -SL https://raw.githubusercontent.com/H-ADJI/cyborg/refs/heads/master/install.sh | sh'" >> .bashrc
 CMD ["/bin/bash"]

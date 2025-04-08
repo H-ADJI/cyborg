@@ -24,6 +24,7 @@ cloneRepos() {
     git clone --depth 1 https://github.com/H-ADJI/dotfiles
     git clone --depth 1 https://github.com/H-ADJI/cyborg
 }
+USERNAME="$(logname)"
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
     sudo pacman -Sy
@@ -35,7 +36,7 @@ if [ "$DISTRO" = "arch" ]; then
     )
     pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
     cloneRepos
-    source $HOME/cyborg/lib/arch-setup.sh
+    source /home/$USERNAME/cyborg/lib/arch-setup.sh
 else
     sudo apt update && sudo apt upgrade -y
     toInstall=(
@@ -44,6 +45,6 @@ else
     )
     sudo apt install -y "${toInstall[@]}"
     cloneRepos
-    source $HOME/cyborg/lib/ubuntu-setup.sh
+    source /home/$USERNAME/cyborg/lib/ubuntu-setup.sh
 fi
 launch_setup

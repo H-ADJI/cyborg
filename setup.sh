@@ -24,10 +24,10 @@ cloneRepos() {
     git clone --depth 1 https://github.com/H-ADJI/dotfiles
     git clone --depth 1 https://github.com/H-ADJI/cyborg
 }
-USERNAME="$(whoami)"
+USERNAME=$1
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
-    sudo pacman -Sy
+    pacman -Sy
     toInstall=(
         "base-devel"
         "wget"
@@ -38,12 +38,12 @@ if [ "$DISTRO" = "arch" ]; then
     cloneRepos
     source /home/$USERNAME/cyborg/lib/arch-setup.sh
 else
-    sudo apt update && sudo apt upgrade -y
+    apt update && apt upgrade -y
     toInstall=(
         "git"
         "nala"
     )
-    sudo apt install -y "${toInstall[@]}"
+    apt install -y "${toInstall[@]}"
     cloneRepos
     source /home/$USERNAME/cyborg/lib/ubuntu-setup.sh
 fi

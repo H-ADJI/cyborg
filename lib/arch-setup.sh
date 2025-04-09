@@ -7,10 +7,10 @@ _checkCommandExists() {
     fi
 }
 _installYay() {
-    git clone git clone --depth 1 --branch next https://aur.archlinux.org/yay.git
+    git clone --depth 1 --branch next https://aur.archlinux.org/yay.git
     cd "yay" || return 1
     makepkg -si --noconfirm
-    cd "/home/khalil/" || return 1
+    cd || return 1
 }
 
 installPackageManager() {

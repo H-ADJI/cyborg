@@ -13,38 +13,31 @@ cat <<"EOF"
 EOF
 echo "Cyborg Setup"
 echo -e "${NONE}"
-# -----------------------------------------------------
-# Check for sudo
-if [ "$EUID" -ne 0 ]; then
-    echo "This script must be run with sudo."
-    exit 1
-fi
-# -----------------------------------------------------
 cloneRepos() {
     git clone --depth 1 https://github.com/H-ADJI/dotfiles
     git clone --depth 1 https://github.com/H-ADJI/cyborg
 }
-USERNAME=$1
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
-    pacman -Sy
+    sudo pacman -Syu
     toInstall=(
         "base-devel"
         "wget"
         "git"
         "go"
     )
-    pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
+    sudo pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
     cloneRepos
-    source /home/khalil/cyborg/lib/arch-setup.sh
+    source ~/cyborg/lib/arch-setup.sh
 else
-    apt update && apt upgrade -y
+    sudo apt update
+    sudo apt upgrade -y
     toInstall=(
         "git"
         "nala"
     )
-    apt install -y "${toInstall[@]}"
+    sudo apt install -y "${toInstall[@]}"
     cloneRepos
-    source /home/khalil/cyborg/lib/ubuntu-setup.sh
+    source ~/cyborg/lib/ubuntu-setup.sh
 fi
 launch_setup

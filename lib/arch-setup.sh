@@ -22,7 +22,7 @@ install_AUR_helper() {
     fi
 }
 installpackages() {
-    yay -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<arch-packages.txt)
+    yay -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<~/cyborg/lib/arch-packages.txt)
 }
 # main entrypoint
 launch_setup() {

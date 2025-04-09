@@ -13,7 +13,7 @@ _installYay() {
     cd || return 1
 }
 
-installPackageManager() {
+install_AUR_helper() {
     if _checkCommandExists "yay"; then
         echo ":: yay is already installed"
     else
@@ -26,5 +26,6 @@ installpackages() {
 }
 # main entrypoint
 launch_setup() {
-    installPackageManager
+    install_AUR_helper
+    installpackages
 }

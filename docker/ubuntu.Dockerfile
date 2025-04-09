@@ -9,7 +9,7 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y curl sudo
 
 # Create a non-root user to run Ansible commands
-ARG USER=khalil
+ARG USER=test-user
 ARG PASS
 RUN useradd -m ${USER} &&  echo "${USER}:${PASS}" | chpasswd 
 RUN usermod -aG sudo ${USER}

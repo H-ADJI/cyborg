@@ -9,7 +9,7 @@ RUN pacman -Syu --noconfirm \
   && pacman -S --noconfirm curl base-devel
 
 # Create a non-root user to run Ansible commands
-ARG USER=khalil
+ARG USER=test-user
 ARG PASS
 RUN useradd -m ${USER} &&  echo "${USER}:${PASS}" | chpasswd 
 RUN echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers

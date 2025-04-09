@@ -1,6 +1,12 @@
 sway
 gdm
-
+genymotion
+grim
+ripgrep
+grep
+thunar
+network-manager-applet
+pipewire
 fuzzel
 nvim
 alacritty
@@ -15,6 +21,7 @@ unzip
 zsh
 eza
 starship
+rustup
 bat
 tmux
 uv
@@ -48,4 +55,4 @@ jnv
 spotify
 mpv
 wlsunset
-
+leetcode-cli

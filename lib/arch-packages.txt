@@ -1,15 +1,19 @@
 alacritty
 android-tools 
+autotiling
 bat
 bottom
 brave-bin
+brightnessctl
 btop
 cava
+cliphist
 code
 direnv
 eza
 fastfetch
 fd
+fnott
 fuzzel
 fzf
 gcc
@@ -20,6 +24,7 @@ google-chrome
 grep
 grim
 gthumb
+gtklock
 helvum
 httptoolkit
 jnv
@@ -36,8 +41,10 @@ nwg-look
 obsidian
 obs-studio
 openssh
+pamixer
 pavucontrol
 pipewire
+playerctl
 python3
 python-pip
 ripgrep
@@ -70,6 +77,7 @@ uv
 virtualbox
 waybar
 wget
+wl
 wl-clipboard
 wlsunset
 yazi

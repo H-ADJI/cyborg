@@ -31,8 +31,8 @@ else
     )
     sudo apt install -y "${toInstall[@]}"
 fi
-[ ! -d "dotfiles" ] && git clone "git@github.com:H-ADJI/dotfiles.git"
-[ ! -d "cyborg" ] && git clone "git@github.com:H-ADJI/cyborg.git"
+[ ! -d "dotfiles" ] && git clone https://github.com/H-ADJI/dotfiles
+[ ! -d "cyborg" ] && git clone https://github.com/H-ADJI/cyborg
 cd cyborg || exit 1
 chmod +x install.sh
 

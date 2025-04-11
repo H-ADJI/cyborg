@@ -66,6 +66,9 @@ post_install() {
 
     echo "Clone some repos"
     personal_repos
+
+    echo "Zsh install plugins"
+    zsh
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1
@@ -119,6 +122,13 @@ personal_repos() {
     git clone git@github.com:H-ADJI/secondBrain.git
     git clone git@github.com:H-ADJI/dicli.git
     git clone git@github.com:H-ADJI/presentations.git
+    cd ~/dotfiles/ || return 1
+    git remote remove origin
+    git remote add origin git@github.com:H-ADJI/dotfiles.git
+    cd ~/cyborg/ || return 1
+    git remote remove origin
+    git remote add origin git@github.com:H-ADJI/cyborg.git
+    cd || exit 1
 }
 # main entrypoint
 launch_setup() {

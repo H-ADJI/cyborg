@@ -25,5 +25,5 @@ chmod +x install.sh
 NONE='\033[0m'
 echo -e "${GREEN}"
 echo "Dotfiles and Cyborg Repositories Downloaded"
-echo "installation script can be run using : ./install.sh"
+echo "Installation script can be run using : ./install.sh"
 echo -e "${NONE}"

@@ -1,7 +1,5 @@
-cloneRepos() {
-    git clone --depth 1 https://github.com/H-ADJI/dotfiles
-    git clone --depth 1 https://github.com/H-ADJI/cyborg
-}
+git clone --depth 1 https://github.com/H-ADJI/dotfiles
+git clone --depth 1 https://github.com/H-ADJI/cyborg
 cd cyborg || exit 1
 chmod +x install.sh
 

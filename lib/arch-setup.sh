@@ -24,15 +24,15 @@ installpackages() {
     yay -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<~/cyborg/lib/arch-packages.txt)
 }
 post_install() {
-    cecho blue "Change shell to use ZSH"
+    cecho blue "[START] Change shell to use ZSH"
     chsh -s "$(which zsh)"
-    cecho green "Change shell to use ZSH"
+    cecho green "[DONE] Change shell to use ZSH"
 
-    cecho blue "Chosing stable rust toolchain release"
+    cecho blue "[START] Chosing stable rust toolchain release"
     rustup default stable
-    cecho green "Chosing stable rust toolchain release"
+    cecho green "[DONE] Chosing stable rust toolchain release"
 
-    cecho blue "Installing multiple uv python versions"
+    cecho blue "I[START] nstalling multiple uv python versions"
     py_versions=(
         "3.12"
         "3.11"
@@ -42,32 +42,41 @@ post_install() {
         "3.7"
     )
     uv python install "${py_versions[@]}"
+    cecho green "[DONE] Installing multiple uv python versions"
 
-    cecho blue "Installing TPM"
+    cecho blue "[START] Installing TPM"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    cecho green "[DONE] Installing TPM"
 
-    cecho blue "transcrypt decryption"
+    cecho blue "[START] transcrypt decryption"
     decrypt_secrets
+    cecho green "[DONE] transcrypt decryption"
 
-    cecho blue "Linking dots"
+    cecho blue "[START] Linking dots"
     link_dotfiles
+    cecho green "[DONE] Linking dots"
 
-    cecho blue "install tmux plugins"
+    cecho blue "[START] install tmux plugins"
     sh ~/.tmux/plugins/tpm/bin/install_plugins
+    cecho blue "[DONE] install tmux plugins"
 
-    cecho blue "link tmuxifier layouts"
+    cecho blue "[START] link tmuxifier layouts"
     cd ~/dotfiles/ || return 1
     stow tmuxifier
     cd || return 1
+    cecho green "[DONE] link tmuxifier layouts"
 
-    cecho blue "ssh setup"
+    cecho blue "[START] ssh setup"
     ssh_setup
+    cecho green "[DONE] ssh setup"
 
-    cecho blue "docker post install steps"
+    cecho blue "[START] docker post install steps"
     docker_post_install
+    cecho green "[DONE] docker post install steps"
 
-    cecho blue "Clone some repos"
+    cecho blue "[START] Clone some repos"
     personal_repos
+    cecho green "[DONE] Clone some repos"
 
 }
 decrypt_secrets() {
@@ -136,6 +145,7 @@ personal_repos() {
     git remote add origin git@github.com:H-ADJI/cyborg.git
     cd || exit 1
 }
+
 # main entrypoint
 launch_setup() {
     install_AUR_helper

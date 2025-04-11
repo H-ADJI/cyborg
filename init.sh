@@ -23,8 +23,5 @@ git clone --depth 1 https://github.com/H-ADJI/cyborg
 cd cyborg || exit 1
 chmod +x install.sh
 
-NONE='\033[0m'
-echo -e "${GREEN}"
 echo "Dotfiles and Cyborg Repositories Downloaded"
-echo "Installation script can be run using : ./install.sh"
-echo -e "${NONE}"
+echo "Installation script can be run using : cyborg/install.sh"

@@ -58,6 +58,12 @@ post_install() {
     cd ~/dotfiles/ || return 1
     stow tmuxifier
     cd || return 1
+
+    echo "ssh setup"
+    ssh_setup
+
+    echo "docker post install steps"
+    docker_post_install
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1
@@ -96,7 +102,17 @@ link_dotfiles() {
     stow "${dotfiles[@]}"
     cd || return 1
 }
+docker_post_install() {
+    sudo groupadd docker
+    sudo usermod -aG docker "$USER"
+}
+ssh_setup() {
+    local ssh_private_key="~/.ssh/ssh_git"
+    eval "$(ssh-agent -s)"
+    chmod 600 $ssh_private_key
+    ssh-add $ssh_private_key
 
+}
 # main entrypoint
 launch_setup() {
     install_AUR_helper

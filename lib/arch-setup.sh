@@ -14,9 +14,9 @@ _installYay() {
 }
 install_AUR_helper() {
     if _checkCommandExists "yay"; then
-        echo ":: yay is already installed"
+        cecho blue ":: yay is already installed"
     else
-        echo ":: The installer requires yay. yay will be installed now"
+        cecho green ":: The installer requires yay. yay will be installed now"
         _installYay
     fi
 }
@@ -24,13 +24,15 @@ installpackages() {
     yay -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<~/cyborg/lib/arch-packages.txt)
 }
 post_install() {
-    echo "Change shell to use ZSH"
+    cecho blue "Change shell to use ZSH"
     chsh -s "$(which zsh)"
+    cecho green "Change shell to use ZSH"
 
-    echo "Chosing stable rust toolchain release"
+    cecho blue "Chosing stable rust toolchain release"
     rustup default stable
+    cecho green "Chosing stable rust toolchain release"
 
-    echo "Installing multiple uv python versions"
+    cecho blue "Installing multiple uv python versions"
     py_versions=(
         "3.12"
         "3.11"
@@ -41,30 +43,30 @@ post_install() {
     )
     uv python install "${py_versions[@]}"
 
-    echo "Installing TPM"
+    cecho blue "Installing TPM"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-    echo "transcrypt decryption"
+    cecho blue "transcrypt decryption"
     decrypt_secrets
 
-    echo "Linking dots"
+    cecho blue "Linking dots"
     link_dotfiles
 
-    echo "install tmux plugins"
+    cecho blue "install tmux plugins"
     sh ~/.tmux/plugins/tpm/bin/install_plugins
 
-    echo "link tmuxifier layouts"
+    cecho blue "link tmuxifier layouts"
     cd ~/dotfiles/ || return 1
     stow tmuxifier
     cd || return 1
 
-    echo "ssh setup"
+    cecho blue "ssh setup"
     ssh_setup
 
-    echo "docker post install steps"
+    cecho blue "docker post install steps"
     docker_post_install
 
-    echo "Clone some repos"
+    cecho blue "Clone some repos"
     personal_repos
 
 }
@@ -117,10 +119,15 @@ ssh_setup() {
 
 }
 personal_repos() {
-    git clone git@github.com:H-ADJI/neurogenesis.git
-    git clone git@github.com:H-ADJI/secondBrain.git
-    git clone git@github.com:H-ADJI/dicli.git
-    git clone git@github.com:H-ADJI/presentations.git
+    projects=(
+        "neurogenesis"
+        "secondBrain"
+        "dicli"
+        "presentations"
+    )
+    for PROJECT in "${projects[@]}"; do
+        [ ! -d "$PROJECT" ] && git clone "git@github.com:H-ADJI/$PROJECT.git"
+    done
     cd ~/dotfiles/ || return 1
     git remote remove origin
     git remote add origin git@github.com:H-ADJI/dotfiles.git

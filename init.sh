@@ -1,3 +1,16 @@
+# colored echo
+cecho() {
+    local color=$1
+    shift
+    case $color in
+        red) echo -e "\033[0;31m$*\033[0m" ;;
+        green) echo -e "\033[0;32m$*\033[0m" ;;
+        yellow) echo -e "\033[1;33m$*\033[0m" ;;
+        blue) echo -e "\033[0;34m$*\033[0m" ;;
+        *) echo "$*" ;;
+    esac
+}
+
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
     sudo pacman -Syu
@@ -18,10 +31,10 @@ else
     )
     sudo apt install -y "${toInstall[@]}"
 fi
-git clone --depth 1 https://github.com/H-ADJI/dotfiles
-git clone --depth 1 https://github.com/H-ADJI/cyborg
+[ ! -d "dotfiles" ] && git clone "git@github.com:H-ADJI/dotfiles.git"
+[ ! -d "cyborg" ] && git clone "git@github.com:H-ADJI/cyborg.git"
 cd cyborg || exit 1
 chmod +x install.sh
 
-echo "Dotfiles and Cyborg Repositories Downloaded"
-echo "Installation script can be run using : cyborg/install.sh"
+cecho green "Dotfiles and Cyborg Repositories Downloaded"
+cecho blue "Installation script can be run using : cyborg/install.sh"

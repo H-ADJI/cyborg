@@ -63,6 +63,9 @@ post_install() {
 
     echo "docker post install steps"
     docker_post_install
+
+    echo "Clone some repos"
+    personal_repos
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1
@@ -105,13 +108,18 @@ docker_post_install() {
     sudo usermod -aG docker "$USER"
 }
 ssh_setup() {
-    local ssh_private_key="~/.ssh/ssh_git"
+    local ssh_private_key="$HOME/.ssh/ssh_git"
     eval "$(ssh-agent -s)"
-    chmod 600 $ssh_private_key
-    ssh-add $ssh_private_key
+    chmod 600 "$ssh_private_key"
+    ssh-add "$ssh_private_key"
 
 }
-
+personal_repos() {
+    git clone git@github.com:H-ADJI/neurogenesis.git
+    git clone git@github.com:H-ADJI/secondBrain.git
+    git clone git@github.com:H-ADJI/dicli.git
+    git clone git@github.com:H-ADJI/presentations.git
+}
 # main entrypoint
 launch_setup() {
     install_AUR_helper

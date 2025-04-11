@@ -2,7 +2,7 @@ cloneRepos() {
     git clone --depth 1 https://github.com/H-ADJI/dotfiles
     git clone --depth 1 https://github.com/H-ADJI/cyborg
 }
-cd cyborg || return 1
+cd cyborg || exit 1
 chmod +x install.sh
 
 NONE='\033[0m'

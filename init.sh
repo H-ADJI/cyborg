@@ -3,8 +3,8 @@ if [ "$DISTRO" = "arch" ]; then
     sudo pacman -Syu
     toInstall=(
         "base-devel"
-        "wget"
         "git"
+        "vim"
         "go"
     )
     sudo pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
@@ -13,6 +13,7 @@ else
     sudo apt upgrade -y
     toInstall=(
         "git"
+        "vim"
         "nala"
     )
     sudo apt install -y "${toInstall[@]}"

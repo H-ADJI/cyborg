@@ -25,6 +25,9 @@ installpackages() {
     yay -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<~/cyborg/lib/arch-packages.txt)
 }
 post_install() {
+    echo "Change shell to use ZSH"
+    chsh -s "$(which zsh)"
+
     echo "Chosing stable rust toolchain release"
     rustup default stable
 
@@ -68,10 +71,25 @@ link_dotfiles() {
         "nvim"
         "alacritty"
         "kitty"
-        "sway"
+        "zsh"
+        "bin"
+        "fnott"
+        "git"
+        "nwg-look"
+        "nwg-drawer"
+        "starship"
         "swaylock"
-        "gtklock"
+        "waybar"
+        "assets"
+        "cava"
+        "direnv"
+        "fuzzel"
+        "zellij"
+        "leetcode"
+        "ruff"
+        "ssh"
         "tmux"
+        "wofi"
     )
     stow "${dotfiles[@]}"
     cd || return 1

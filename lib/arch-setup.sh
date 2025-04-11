@@ -67,8 +67,6 @@ post_install() {
     echo "Clone some repos"
     personal_repos
 
-    echo "Zsh install plugins"
-    zsh -c exit
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

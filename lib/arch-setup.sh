@@ -89,6 +89,7 @@ link_dotfiles() {
         "gtk-3.0"
         "gthumb"
         "swaylock"
+        "sway"
         "waybar"
         "assets"
         "cava"

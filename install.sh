@@ -16,10 +16,6 @@ echo -e "${NONE}"
 echo ""
 read -rp "Enter Master Password : " pswd
 echo "Password is : $pswd "
-cloneRepos() {
-    git clone --depth 1 https://github.com/H-ADJI/dotfiles
-    git clone --depth 1 https://github.com/H-ADJI/cyborg
-}
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
     sudo pacman -Syu
@@ -30,7 +26,6 @@ if [ "$DISTRO" = "arch" ]; then
         "go"
     )
     sudo pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
-    cloneRepos
     source ~/cyborg/lib/arch-setup.sh
 else
     sudo apt update
@@ -40,7 +35,6 @@ else
         "nala"
     )
     sudo apt install -y "${toInstall[@]}"
-    cloneRepos
     source ~/cyborg/lib/ubuntu-setup.sh
 fi
 

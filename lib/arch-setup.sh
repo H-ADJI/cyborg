@@ -12,7 +12,6 @@ _installYay() {
     makepkg -si --noconfirm
     cd || return 1
 }
-
 install_AUR_helper() {
     if _checkCommandExists "yay"; then
         echo ":: yay is already installed"
@@ -70,7 +69,6 @@ decrypt_secrets() {
     transcrypt -y -p "$pswd"
     cd || return 1
 }
-
 link_dotfiles() {
     cd ~/dotfiles/ || return 1
     dotfiles=(
@@ -113,6 +111,7 @@ ssh_setup() {
     ssh-add $ssh_private_key
 
 }
+
 # main entrypoint
 launch_setup() {
     install_AUR_helper

@@ -10,6 +10,7 @@ cava
 cliphist
 code
 direnv
+docker
 eza
 fastfetch
 fd

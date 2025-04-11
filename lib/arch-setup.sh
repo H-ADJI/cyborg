@@ -68,7 +68,7 @@ post_install() {
     personal_repos
 
     echo "Zsh install plugins"
-    zsh
+    zsh -c exit
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

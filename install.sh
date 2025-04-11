@@ -18,23 +18,8 @@ read -rp "Enter Master Password : " pswd
 echo "Password is : $pswd "
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
-    sudo pacman -Syu
-    toInstall=(
-        "base-devel"
-        "wget"
-        "git"
-        "go"
-    )
-    sudo pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
     source ~/cyborg/lib/arch-setup.sh
 else
-    sudo apt update
-    sudo apt upgrade -y
-    toInstall=(
-        "git"
-        "nala"
-    )
-    sudo apt install -y "${toInstall[@]}"
     source ~/cyborg/lib/ubuntu-setup.sh
 fi
 

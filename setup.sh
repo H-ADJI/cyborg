@@ -13,6 +13,9 @@ cat <<"EOF"
 EOF
 echo "Cyborg Setup"
 echo -e "${NONE}"
+echo ""
+read -rp "Enter Master Password" pswd
+echo "Password is : $pswd "
 cloneRepos() {
     git clone --depth 1 https://github.com/H-ADJI/dotfiles
     git clone --depth 1 https://github.com/H-ADJI/cyborg

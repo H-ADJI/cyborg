@@ -78,6 +78,8 @@ link_dotfiles() {
         "nwg-look"
         "nwg-drawer"
         "starship"
+        "gtk-3.0"
+        "gthumb"
         "swaylock"
         "waybar"
         "assets"

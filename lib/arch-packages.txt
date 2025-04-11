@@ -81,6 +81,7 @@ wget
 wl
 wl-clipboard
 wlsunset
+yad
 yazi
 zbar
 zoxide

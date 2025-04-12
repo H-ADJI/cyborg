@@ -115,7 +115,7 @@ link_dotfiles() {
         "tmux"
         "wofi"
     )
-    stow "${dotfiles[@]}"
+    stow --adopt "${dotfiles[@]}"
     cd || return 1
 }
 docker_post_install() {

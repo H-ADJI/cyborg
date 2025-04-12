@@ -21,7 +21,9 @@ install_AUR_helper() {
     fi
 }
 installpackages() {
-    yay -S --noconfirm --noprogressbar --needed --disable-download-timeout $(<~/cyborg/lib/arch-packages.txt)
+    while read package; do
+        yay -S --mflags "--quiet" --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
+    done <~/cyborg/lib/arch-packages.txt
 }
 post_install() {
     cecho blue "[START] Change shell to use ZSH"

@@ -22,7 +22,9 @@ install_AUR_helper() {
 }
 installpackages() {
     while read package; do
+        cecho blue "[START] Installing $package"
         yay -S --mflags "--quiet" --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
+        cecho green "[DONE] Installing $package"
     done <~/cyborg/lib/arch-packages.txt
 }
 post_install() {

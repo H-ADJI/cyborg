@@ -14,6 +14,7 @@ cecho() {
         blue) echo -e "\033[0;34m$*\033[0m" ;;
         *) echo "$*" ;;
     esac
+    echo
 }
 # Prompt
 echo -e "${GREEN}"

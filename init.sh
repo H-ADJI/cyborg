@@ -15,7 +15,7 @@ cecho() {
 
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
-    sudo pacman -Syu
+    sudo pacman -Syu --noconfirm
     toInstall=(
         "base-devel"
         "git"

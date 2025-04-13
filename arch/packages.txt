@@ -1,3 +1,5 @@
+xdg-desktop-portal-wlr
+xdg-desktop-portal
 alacritty
 android-tools 
 autotiling

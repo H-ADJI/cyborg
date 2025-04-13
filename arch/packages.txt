@@ -2,6 +2,7 @@ alacritty
 android-tools 
 noto-fonts
 noto-fonts-emoji
+python-setuptools
 autotiling
 awesome-terminal-fonts
 bat

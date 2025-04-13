@@ -19,24 +19,25 @@ cecho() {
 }
 # Prompt
 echo -e "${GREEN}"
+DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 cat <<"EOF"
    ____         __       ____
   /  _/__  ___ / /____ _/ / /__ ____
  _/ // _ \(_-</ __/ _ `/ / / -_) __/
 /___/_//_/___/\__/\_,_/_/_/\__/_/
 EOF
-cecho blue "Cyborg Setup"
+cecho blue "Cyborg Setup For : $DISTRO"
 echo -e "${NONE}"
 echo ""
+export pswd
 read -rp "Enter Master Password : " pswd
 echo ""
-
-DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
-    source ~/cyborg/lib/arch-setup.sh
+    dir="arch"
 else
-    source ~/cyborg/lib/ubuntu-setup.sh
+    dir="ubuntu"
 fi
+source "$HOME/cyborg/$dir/ubuntu-setup.sh"
 
 launch_setup
 

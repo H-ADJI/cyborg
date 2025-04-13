@@ -1,3 +1,4 @@
+#!/bin/bash
 _checkCommandExists() {
     package="$1"
     if ! command -v "$package" >/dev/null; then
@@ -25,7 +26,7 @@ installpackages() {
         cecho blue "[START] Installing $package"
         yay -Sq --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
         cecho green "[DONE] Installing $package"
-    done <~/cyborg/lib/arch-packages.txt
+    done <~/cyborg/arch/packages.txt
 }
 post_install() {
     cecho blue "[START] Change shell to use ZSH"

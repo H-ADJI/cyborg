@@ -84,7 +84,7 @@ post_install() {
     cecho green "[DONE] Clone some repos"
 
     cecho blue "[START] Set timezone"
-    sudo timedatectl set-timezone Europe/Paris 
+    sudo timedatectl set-timezone Europe/Paris
     cecho green "[DONE] Set timezone"
 }
 decrypt_secrets() {

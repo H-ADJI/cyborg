@@ -37,7 +37,7 @@ post_install() {
     rustup default stable
     cecho green "[DONE] Chosing stable rust toolchain release"
 
-    cecho blue "I[START] nstalling multiple uv python versions"
+    cecho blue "[START] installing multiple uv python versions"
     py_versions=(
         "3.12"
         "3.11"

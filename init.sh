@@ -34,9 +34,9 @@ else
     sudo apt install -y "${toInstall[@]}"
 fi
 cecho green "Cloning setup repos"
-cecho blue "DOTFILES"
+cecho blue "-> Cloning DOTFILES"
 [ ! -d "dotfiles" ] && git clone https://github.com/H-ADJI/dotfiles
-cecho blue "CYBORG"
+cecho blue "-> Cloning CYBORG"
 [ ! -d "cyborg" ] && git clone https://github.com/H-ADJI/cyborg
 cd cyborg || exit 1
 chmod +x install.sh

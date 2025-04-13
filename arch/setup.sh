@@ -83,6 +83,9 @@ post_install() {
     personal_repos
     cecho green "[DONE] Clone some repos"
 
+    cecho blue "[START] Set timezone"
+    sudo timedatectl set-timezone Europe/Paris 
+    cecho green "[DONE] Set timezone"
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

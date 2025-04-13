@@ -1,5 +1,7 @@
 alacritty
 android-tools 
+noto-fonts
+noto-fonts-emoji
 autotiling
 awesome-terminal-fonts
 bat

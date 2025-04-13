@@ -2,6 +2,7 @@
 cecho() {
     local color=$1
     shift
+    echo
     case $color in
         red) echo -e "\033[0;31m$*\033[0m" ;;
         green) echo -e "\033[0;32m$*\033[0m" ;;
@@ -9,6 +10,7 @@ cecho() {
         blue) echo -e "\033[0;34m$*\033[0m" ;;
         *) echo "$*" ;;
     esac
+    echo
 }
 
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')

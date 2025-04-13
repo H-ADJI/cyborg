@@ -76,6 +76,7 @@ ttf-nerd-fonts-symbols
 unzip
 uv
 virtualbox
+virtualbox-host-modules-arch
 waybar
 wget
 wl

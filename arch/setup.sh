@@ -8,7 +8,7 @@ _checkCommandExists() {
     fi
 }
 _installYay() {
-    git clone --depth 1 https://aur.archlinux.org/yay.git
+    [ ! -d "yay" ] && git clone --depth 1 https://aur.archlinux.org/yay.git
     cd "yay" || return 1
     makepkg -si --noconfirm
     cd || return 1

@@ -86,6 +86,14 @@ post_install() {
     cecho blue "[START] Set timezone"
     sudo timedatectl set-timezone Europe/Paris
     cecho green "[DONE] Set timezone"
+
+    cecho blue "[START] Enable docker service"
+    sudo systemctl enable docker.service
+    cecho green "[DONE] Enable docker service"
+
+    cecho blue "[START] Enable NetworkManager service"
+    sudo systemctl enable NetworkManager.service
+    cecho green "[DONE] Enable NetworkManager service"
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

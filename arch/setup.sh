@@ -81,6 +81,13 @@ post_install() {
     cd || return 1
     cecho green "[DONE] link tmuxifier layouts"
 
+    cecho blue "[START] link sddm theme and conf"
+    cd ~/dotfiles/ || return 1
+    sudo stow -t /usr/share sddm_theme
+    sudo stow -t /etc sddm_conf
+    cd || return 1
+    cecho green "[DONE] link sddm theme and conf"
+
     cecho blue "[START] ssh setup"
     ssh_setup
     cecho green "[DONE] ssh setup"

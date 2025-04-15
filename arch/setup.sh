@@ -53,6 +53,11 @@ post_install() {
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     cecho green "[DONE] Installing TPM"
 
+    cecho blue "[START] Installing TPM"
+    curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh -s -- -y
+    curl -fsSL https://raw.githubusercontent.com/spicetify/marketplace/main/resources/install.sh | sh
+    cecho green "[DONE] Installing TPM"
+
     cecho blue "[START] transcrypt decryption"
     decrypt_secrets
     cecho green "[DONE] transcrypt decryption"
@@ -149,6 +154,7 @@ personal_repos() {
         "secondBrain"
         "dicli"
         "presentations"
+        ".dotfiles"
     )
     for PROJECT in "${projects[@]}"; do
         [ ! -d "$PROJECT" ] && git clone "git@github.com:H-ADJI/$PROJECT.git"

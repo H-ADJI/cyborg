@@ -4,7 +4,6 @@ noto-fonts
 proton-vpn-gtk-app
 noto-fonts-emoji
 python-setuptools
-autotiling
 awesome-terminal-fonts
 bat
 bottom

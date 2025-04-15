@@ -42,7 +42,6 @@ mpv
 network-manager-applet
 npm
 nvim
-nwg-drawer 
 nwg-look 
 obsidian
 obs-studio

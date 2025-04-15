@@ -43,6 +43,8 @@ network-manager-applet
 npm
 nvim
 nwg-look 
+alsa-utils
+alsa-tools
 obsidian
 obs-studio
 openssh

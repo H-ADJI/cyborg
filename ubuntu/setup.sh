@@ -32,6 +32,8 @@ installpackages() {
     cecho blue "[START] INSTALL genymotion"
     install_genymotion
 
+    cecho blue "[START] Docker"
+    install_docker
     cecho blue "[START] INSTALL fonts"
 }
 install_deb_packages() {
@@ -68,6 +70,13 @@ install_genymotion() {
     wget -O genymotion https://dl.genymotion.com/releases/genymotion-3.8.0/genymotion-3.8.0-linux_x64.bin
     chmod +x genymotion
     sudo ./genymotion
+}
+install_docker() {
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh ./get-docker.sh
+    rm get-docker.sh
+    sudo groupadd docker
+    sudo usermod -aG docker "$USER"
 }
 install_swappy() {
     git clone https://github.com/jtheoof/swappy.git

@@ -29,6 +29,9 @@ installpackages() {
     cecho blue "[START] INSTALL swappy"
     install_swappy
 
+    cecho blue "[START] INSTALL genymotion"
+    install_genymotion
+
     cecho blue "[START] INSTALL fonts"
 }
 install_deb_packages() {
@@ -60,6 +63,11 @@ install_mako() {
     ninja -C build
     sudo ninja -C build install
     cd || return 1
+}
+install_genymotion() {
+    wget -O genymotion https://dl.genymotion.com/releases/genymotion-3.8.0/genymotion-3.8.0-linux_x64.bin
+    chmod +x genymotion
+    ./genymotion
 }
 install_swappy() {
     git clone https://github.com/jtheoof/swappy.git

@@ -1,3 +1,4 @@
+adb
 alacritty
 audacity
 bat
@@ -10,7 +11,6 @@ cliphist
 curl
 direnv
 eza
-fastfetch
 fd-find
 fnott
 fuzzel
@@ -25,7 +25,7 @@ jq
 libcairo2-dev
 libdbus-1-dev
 libgdk-pixbuf2.0-dev
-libpango1.0-devadb
+libpango1.0-dev
 libsqlite3-dev
 libssl-dev
 libsystemd-dev

@@ -30,7 +30,6 @@ installpackages() {
     install_swappy
 
     cecho blue "[START] INSTALL fonts"
-    chsh -s "$(which zsh)"
 }
 install_deb_packages() {
     [ ! -d "Downloads" ] && mkdir -p Downloads && cd Downloads || return 1

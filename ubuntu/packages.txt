@@ -65,8 +65,10 @@ wayland-protocols
 wget
 wl-clipboard
 wlsunset
+wofi
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 yad
+zellij
 zoxide
 zsh

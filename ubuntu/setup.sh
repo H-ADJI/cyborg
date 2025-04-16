@@ -17,17 +17,19 @@ installpackages() {
     cecho blue "[START] INSTALL starship"
     curl -sS https://starship.rs/install.sh | sh -s -- -y
 
-    cecho blue "[START] INSTALL mako"
-    chsh -s "$(which zsh)"
-    cecho blue "[START] INSTALL swappy"
-    chsh -s "$(which zsh)"
     cecho blue "[START] INSTALL transcrypt"
-    chsh -s "$(which zsh)"
+    git clone https://github.com/elasticdog/transcrypt.git
+    cd transcrypt/ || return 1
+    sudo ln -s "${PWD}/transcrypt" /usr/local/bin/transcrypt
+    cd || return
+
+    cecho blue "[START] INSTALL mako"
+    install_mako
+
+    cecho blue "[START] INSTALL swappy"
+    install_swappy
+
     cecho blue "[START] INSTALL fonts"
-    chsh -s "$(which zsh)"
-    cecho blue "[START] INSTALL brave"
-    chsh -s "$(which zsh)"
-    cecho blue "[START] INSTALL brave"
     chsh -s "$(which zsh)"
 }
 install_deb_packages() {
@@ -55,6 +57,14 @@ install_deb_packages() {
 install_mako() {
     git clone https://github.com/emersion/mako.git
     cd mako || return 1
+    meson build
+    ninja -C build
+    sudo ninja -C build install
+    cd || return 1
+}
+install_swappy() {
+    git clone https://github.com/jtheoof/swappy.git
+    cd swappy || return 1
     meson build
     ninja -C build
     sudo ninja -C build install

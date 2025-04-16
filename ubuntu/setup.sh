@@ -67,7 +67,7 @@ install_mako() {
 install_genymotion() {
     wget -O genymotion https://dl.genymotion.com/releases/genymotion-3.8.0/genymotion-3.8.0-linux_x64.bin
     chmod +x genymotion
-    ./genymotion
+    sudo ./genymotion
 }
 install_swappy() {
     git clone https://github.com/jtheoof/swappy.git

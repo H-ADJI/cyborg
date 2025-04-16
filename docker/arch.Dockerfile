@@ -10,7 +10,6 @@ ENV LC_CTYPE=en_US.UTF-8
 RUN pacman -Syu --noconfirm \
   && pacman -S --noconfirm curl base-devel
 
-# Create a non-root user to run Ansible commands
 ARG USER=test-user
 ARG PASS
 RUN useradd -m ${USER} &&  echo "${USER}:${PASS}" | chpasswd 

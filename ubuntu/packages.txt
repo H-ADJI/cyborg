@@ -8,6 +8,7 @@ btop
 build-essential
 cava
 cliphist
+cmake
 curl
 direnv
 eza
@@ -15,6 +16,7 @@ fd-find
 fnott
 fuzzel
 gcc
+gettext
 git
 grep
 grim
@@ -69,6 +71,5 @@ wofi
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 yad
-zellij
 zoxide
 zsh

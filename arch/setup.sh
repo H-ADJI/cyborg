@@ -121,6 +121,7 @@ link_dotfiles() {
         "fnott"
         "git"
         "nwg-look"
+        "gtklock"
         "mako"
         "starship"
         "gtk-3.0"

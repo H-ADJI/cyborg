@@ -13,6 +13,7 @@ cliphist
 code
 direnv
 docker
+evince
 eza
 fastfetch
 fd
@@ -35,6 +36,7 @@ leetcode-cli
 mako
 man-db
 mpv
+mupdf
 network-manager-applet
 noto-fonts
 noto-fonts-emoji

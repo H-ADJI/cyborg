@@ -104,6 +104,10 @@ post_install() {
     cecho blue "[START] Enable NetworkManager service"
     sudo systemctl enable NetworkManager.service
     cecho green "[DONE] Enable NetworkManager service"
+
+    cecho blue "[START] Default pdf reader"
+    xdg-mime default mupdf.desktop application/pdf
+    cecho blue "[DONE] Default pdf reader"
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

@@ -2,6 +2,7 @@ alacritty
 alsa-tools
 alsa-utils
 android-tools 
+ardour
 awesome-terminal-fonts
 bat
 bottom
@@ -28,6 +29,8 @@ grep
 grim
 gthumb
 gtklock
+guitarix
+gxplugins.lv2
 helvum
 httptoolkit
 jnv
@@ -86,6 +89,7 @@ wl-clipboard
 wlsunset
 xdg-desktop-portal
 xdg-desktop-portal-wlr
+xorg-server-xvfb
 yad
 yazi
 zbar

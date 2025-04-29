@@ -62,6 +62,8 @@ rustup
 slack-desktop-wayland
 slurp
 solaar
+feh
+libreoffice-still
 spotify
 starship
 stow

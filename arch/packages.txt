@@ -1,3 +1,4 @@
+7zip
 alacritty
 alsa-tools
 alsa-utils
@@ -18,6 +19,7 @@ evince
 eza
 fastfetch
 fd
+feh
 fnott
 fuzzel
 fzf
@@ -36,6 +38,7 @@ httptoolkit
 jnv
 jq
 leetcode-cli
+libreoffice-still
 mako
 man-db
 mpv
@@ -62,8 +65,6 @@ rustup
 slack-desktop-wayland
 slurp
 solaar
-feh
-libreoffice-still
 spotify
 starship
 stow

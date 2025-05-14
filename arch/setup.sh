@@ -43,8 +43,6 @@ post_install() {
         "3.11"
         "3.10"
         "3.9"
-        "3.8"
-        "3.7"
     )
     uv python install "${py_versions[@]}"
     cecho green "[DONE] Installing multiple uv python versions"

@@ -105,9 +105,13 @@ post_install() {
     sudo systemctl enable NetworkManager.service
     cecho green "[DONE] Enable NetworkManager service"
 
-    cecho blue "[START] Default pdf reader"
+    cecho blue "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
-    cecho blue "[DONE] Default pdf reader"
+    xdg-mime default feh.desktop image/png
+    xdg-mime default gthumb.desktop image/png
+    xdg-mime default brave-browser.desktop text/plain
+    xdg-mime default brave-browser.desktop application/octet-stream
+    cecho green "[DONE] Default apps"
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

@@ -131,7 +131,6 @@ link_dotfiles() {
         "mako"
         "starship"
         "gtk-3.0"
-        "gthumb"
         "swaylock"
         "sway"
         "waybar"

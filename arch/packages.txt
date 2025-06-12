@@ -36,6 +36,7 @@ guitarix
 gxplugins.lv2
 helvum
 httptoolkit
+imv
 inetutils
 jnv
 jq

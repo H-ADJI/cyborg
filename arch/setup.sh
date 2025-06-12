@@ -105,7 +105,8 @@ post_install() {
 
     cecho blue "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
-    xdg-mime default feh.desktop image/png
+    # xdg-mime default feh.desktop image/png
+    xdg-mime default imv.desktop image/jpg
     # xdg-mime default gthumb.desktop image/png
     xdg-mime default brave-browser.desktop text/plain
     xdg-mime default brave-browser.desktop application/octet-stream

@@ -42,6 +42,7 @@ jnv
 jq
 leetcode-cli
 libreoffice-still
+ly
 mako
 man-db
 mpv

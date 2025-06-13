@@ -103,6 +103,10 @@ post_install() {
     sudo systemctl enable NetworkManager.service
     cecho green "[DONE] Enable NetworkManager service"
 
+    cecho blue "[START] Enable ly display manager service"
+    sudo systemctl enable ly.service
+    cecho green "[DONE] Enable ly display manager service"
+
     cecho blue "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
     # xdg-mime default feh.desktop image/png

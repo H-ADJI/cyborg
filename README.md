@@ -13,3 +13,9 @@ Dotfiles available [here](https://github.com/H-ADJI/dotfiles)
 ```bash
 curl -SL https://raw.githubusercontent.com/H-ADJI/cyborg/refs/heads/master/init.sh | bash
 ```
+
+## Final product
+
+![wallpaper](./assets/wallpaper.png)
+![neovim](./assets/neovim.png)
+![cava](./assets/cava.png)

@@ -19,3 +19,4 @@ curl -SL https://raw.githubusercontent.com/H-ADJI/cyborg/refs/heads/master/init.
 ![wallpaper](./assets/wallpaper.png)
 ![neovim](./assets/neovim.png)
 ![cava](./assets/cava.png)
+![workstation](./assets/workstation.jpg)

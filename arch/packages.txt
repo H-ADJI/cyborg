@@ -1,4 +1,6 @@
 7zip
+bluez
+bluetui
 alacritty
 alsa-tools
 alsa-utils

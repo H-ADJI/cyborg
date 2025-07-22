@@ -1,6 +1,4 @@
 7zip
-bluez
-bluetui
 alacritty
 alsa-tools
 alsa-utils
@@ -8,6 +6,9 @@ android-tools
 ardour
 awesome-terminal-fonts
 bat
+bluetui
+bluez
+bluez-utils
 bottom
 brave-bin
 brightnessctl
@@ -76,8 +77,8 @@ spotify
 starship
 stow
 swappy
-swayfx
 swaybg
+swayfx
 swayidle
 swaylock
 task

@@ -104,6 +104,7 @@ wl-clipboard
 wlsunset
 xdg-desktop-portal
 xdg-desktop-portal-wlr
+xorg-server-xephyr
 xorg-server-xvfb
 yad
 yazi

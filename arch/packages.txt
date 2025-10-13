@@ -90,12 +90,12 @@ tree
 ttf-dejavu 
 ttf-jetbrains-mono 
 ttf-jetbrains-mono-nerd
-ttf-jetbrains-mono-nerd 
 ttf-nerd-fonts-symbols
 ueberzugpp
 unp
 unzip
 uv
+vial
 virtualbox
 virtualbox-host-modules-arch
 waybar

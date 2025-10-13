@@ -103,6 +103,10 @@ post_install() {
     sudo systemctl enable NetworkManager.service
     cecho green "[DONE] Enable NetworkManager service"
 
+    cecho blue "[START] Enable bluetooth service"
+    sudo systemctl enable bluetooth.service
+    cecho green "[DONE] Enable bluetooth service"
+
     cecho blue "[START] Enable ly display manager service"
     sudo systemctl enable ly.service
     cecho green "[DONE] Enable ly display manager service"

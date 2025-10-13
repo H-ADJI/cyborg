@@ -97,6 +97,8 @@ unzip
 uv
 vial
 virtualbox
+iwd
+impala
 virtualbox-host-modules-arch
 waybar
 wget

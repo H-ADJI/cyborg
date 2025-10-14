@@ -109,7 +109,7 @@ post_install() {
     cecho green "[DONE] Enable bluetooth service"
 
     cecho blue "[START] Enable ly display manager service"
-    sudo systemctl enable ly.service
+    sudo systemctl enable ly.service -f
     cecho green "[DONE] Enable ly display manager service"
 
     cecho blue "[START] Default apps"

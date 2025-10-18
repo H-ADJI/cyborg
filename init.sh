@@ -21,6 +21,7 @@ if [ "$DISTRO" = "arch" ]; then
         "git"
         "vim"
         "go"
+        "gum"
     )
     sudo pacman -S --noconfirm --noprogressbar --needed --disable-download-timeout "${toInstall[@]}"
 else

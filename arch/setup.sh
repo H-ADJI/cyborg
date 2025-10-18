@@ -123,7 +123,7 @@ post_install() {
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1
-    transcrypt -y -p "$pswd"
+    transcrypt -y -p "$MASTER_PASSWORD"
     cd || return 1
 }
 link_dotfiles() {

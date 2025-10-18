@@ -15,6 +15,7 @@ brightnessctl
 btop
 burpsuite
 cava
+chromium
 cliphist
 code
 direnv
@@ -37,6 +38,7 @@ grim
 gthumb
 gtklock
 guitarix
+gum
 gxplugins.lv2
 helvum
 httptoolkit

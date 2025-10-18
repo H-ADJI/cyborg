@@ -154,6 +154,7 @@ link_dotfiles() {
         "tmux"
         "wofi"
         "fastfetch"
+        "systemd"
     )
     stow --adopt "${dotfiles[@]}"
     cd || return 1

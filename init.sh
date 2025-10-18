@@ -44,4 +44,4 @@ chmod +x install.sh
 
 cecho green "Dotfiles and Cyborg Repositories Downloaded"
 cecho blue "Installation script can be run using : cyborg/install.sh"
-exec cyborg/install.sh
+exec install.sh

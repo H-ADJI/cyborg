@@ -18,6 +18,7 @@ cava
 cliphist
 code
 direnv
+dmenu
 docker
 evince
 eza
@@ -39,8 +40,11 @@ guitarix
 gxplugins.lv2
 helvum
 httptoolkit
+i3
+impala
 imv
 inetutils
+iwd
 jnv
 jq
 leetcode-cli
@@ -74,7 +78,6 @@ slack-desktop-wayland
 slurp
 solaar
 spotify
-zenity
 starship
 stow
 swappy
@@ -98,8 +101,6 @@ unzip
 uv
 vial
 virtualbox
-iwd
-impala
 virtualbox-host-modules-arch
 waybar
 wget
@@ -112,5 +113,6 @@ xorg-server-xvfb
 yad
 yazi
 zbar
+zenity
 zoxide
 zsh

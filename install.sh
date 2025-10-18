@@ -27,14 +27,10 @@ cat <<"EOF"
 /___/_//_/___/\__/\_,_/_/_/\__/_/
 EOF
 cecho blue "Cyborg Setup For : $DISTRO"
-echo -e "${NONE}"
-echo ""
 export MASTER_PASSWORD
 MASTER_PASSWORD=$(
     gum input --prompt "Master Password> " --password
 )
-read -rp "Enter Master Password : " MASTER_PASSWORD
-echo ""
 if [ "$DISTRO" = "arch" ]; then
     dir="arch"
 else

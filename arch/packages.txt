@@ -87,7 +87,7 @@ swappy
 swaybg
 swayfx
 swayidle
-swaylock
+swaylock-effects
 task
 taskwarrior-tui
 thunar

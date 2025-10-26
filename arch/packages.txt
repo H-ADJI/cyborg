@@ -108,6 +108,7 @@ virtualbox-host-modules-arch
 waybar
 wget
 wl-clipboard
+wlogout
 wlsunset
 xdg-desktop-portal
 xdg-desktop-portal-wlr

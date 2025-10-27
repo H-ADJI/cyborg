@@ -1,6 +1,7 @@
 alacritty
 alsa-tools
 alsa-utils
+argon2
 awesome-terminal-fonts
 bat
 bluez

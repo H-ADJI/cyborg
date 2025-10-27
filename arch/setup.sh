@@ -120,14 +120,6 @@ post_install() {
     sudo systemctl enable greetd.service -f
     gum log -l info "[DONE] Enable greetd display manager service"
 
-    # gum log -l info "[START] Systemd unit"
-    # sudo systemctl set-default graphical.target
-    # gum log -l info "[DONE] Systemd unit"
-
-    gum log -l info "[START] Masking network wait service"
-    sudo systemctl mask systemd-networkd-wait-online.service
-    gum log -l info "[DONE] Masking network wait service"
-
     gum log -l info "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
     # xdg-mime default feh.desktop image/png

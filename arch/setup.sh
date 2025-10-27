@@ -60,6 +60,7 @@ post_install() {
     cecho green "[DONE] Installing TPM"
 
     cecho blue "[START] Installing spicetify"
+    # TODO: fix spotify install
     sudo chmod a+wr /opt/spotify
     sudo chmod a+wr /opt/spotify/Apps -R
     curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh

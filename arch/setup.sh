@@ -16,33 +16,33 @@ _installYay() {
 install_AUR_helper() {
     cd || exit 1
     if _checkCommandExists "yay"; then
-        cecho blue ":: yay is already installed"
+        gum log -l info ":: yay is already installed"
     else
-        cecho green ":: The installer requires yay. yay will be installed now"
+        gum log -l info ":: The installer requires yay. yay will be installed now"
         _installYay
     fi
 }
 installpackages() {
     while read package; do
-        cecho blue "[START] Installing $package"
+        gum log -l info "[START] Installing $package"
         yay -Sq --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
-        cecho green "[DONE] Installing $package"
+        gum log -l info  "[DONE] Installing $package"
     done <~/cyborg/arch/packages-pre.txt
 }
 post_install() {
-    cecho blue "[START] Copy greetd config / sessions"
+    gum log -l info "[START] Copy greetd config / sessions"
     sudo cp -r ~/dotfiles/greetd/ /etc
-    cecho green "[DONE] Copy greetd config / sessions"
+    gum log -l info "[DONE] Copy greetd config / sessions"
 
-    cecho blue "[START] Change shell to use ZSH"
+    gum log -l info "[START] Change shell to use ZSH"
     chsh -s "$(which zsh)"
-    cecho green "[DONE] Change shell to use ZSH"
+    gum log "[DONE] Change shell to use ZSH"
 
-    cecho blue "[START] Chosing stable rust toolchain release"
+    gum log -l info "[START] Chosing stable rust toolchain release"
     rustup default stable
-    cecho green "[DONE] Chosing stable rust toolchain release"
+    gum log -l info "[DONE] Chosing stable rust toolchain release"
 
-    cecho blue "[START] installing multiple uv python versions"
+    gum log -l info "[START] installing multiple uv python versions"
     py_versions=(
         "3.12"
         "3.11"
@@ -50,88 +50,88 @@ post_install() {
         "3.9"
     )
     uv python install "${py_versions[@]}"
-    cecho green "[DONE] Installing multiple uv python versions"
+    gum log -l info  "[DONE] Installing multiple uv python versions"
 
-    cecho blue "[START] Copying assets"
+    gum log -l info "[START] Copying assets"
     cp -r ~/dotfiles/assets ~/.config/
-    cecho green "[DONE] Copying assets"
+    gum log -l info  "[DONE] Copying assets"
 
-    cecho blue "[START] Installing TPM"
+    gum log -l info "[START] Installing TPM"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    cecho green "[DONE] Installing TPM"
+    gum log -l info  "[DONE] Installing TPM"
 
-    cecho blue "[START] Spotify file permissions"
+    gum log -l info "[START] Spotify file permissions"
     sudo chmod a+wr /opt/spotify
     sudo chmod a+wr /opt/spotify/Apps -R
-    cecho green "[DONE] Spotify file permissions"
+    gum log -l info  "[DONE] Spotify file permissions"
 
-    cecho blue "[START] Spicetify apply"
+    gum log -l info "[START] Spicetify apply"
     spicetify update
     spicetify apply
-    cecho green "[DONE] Spicetify apply"
+    gum log -l info  "[DONE] Spicetify apply"
 
-    cecho blue "[START] transcrypt decryption"
+    gum log -l info "[START] transcrypt decryption"
     decrypt_secrets
-    cecho green "[DONE] transcrypt decryption"
+    gum log -l info  "[DONE] transcrypt decryption"
 
-    cecho blue "[START] Linking dots"
+    gum log -l info "[START] Linking dots"
     link_dotfiles
-    cecho green "[DONE] Linking dots"
+    gum log -l info  "[DONE] Linking dots"
 
-    cecho blue "[START] install tmux plugins"
+    gum log -l info "[START] install tmux plugins"
     sh ~/.tmux/plugins/tpm/bin/install_plugins
-    cecho blue "[DONE] install tmux plugins"
+    gum log -l info "[DONE] install tmux plugins"
 
-    cecho blue "[START] link tmuxifier layouts"
+    gum log -l info "[START] link tmuxifier layouts"
     cd ~/dotfiles/ || return 1
     stow tmuxifier
     cd || return 1
-    cecho green "[DONE] link tmuxifier layouts"
+    gum log -l info  "[DONE] link tmuxifier layouts"
 
-    cecho blue "[START] ssh setup"
+    gum log -l info "[START] ssh setup"
     ssh_setup
-    cecho green "[DONE] ssh setup"
+    gum log -l info  "[DONE] ssh setup"
 
-    cecho blue "[START] docker post install steps"
+    gum log -l info "[START] docker post install steps"
     docker_post_install
-    cecho green "[DONE] docker post install steps"
+    gum log -l info  "[DONE] docker post install steps"
 
-    cecho blue "[START] Clone some repos"
+    gum log -l info "[START] Clone some repos"
     personal_repos
-    cecho green "[DONE] Clone some repos"
+    gum log -l info  "[DONE] Clone some repos"
 
-    cecho blue "[START] Set timezone"
+    gum log -l info "[START] Set timezone"
     sudo timedatectl set-timezone Europe/Paris
-    cecho green "[DONE] Set timezone"
+    gum log -l info  "[DONE] Set timezone"
 
-    cecho blue "[START] Enable docker service"
+    gum log -l info "[START] Enable docker service"
     sudo systemctl enable docker.service
-    cecho green "[DONE] Enable docker service"
+    gum log -l info  "[DONE] Enable docker service"
 
-    cecho blue "[START] Enable NetworkManager service"
+    gum log -l info "[START] Enable NetworkManager service"
     sudo systemctl enable NetworkManager.service
-    cecho green "[DONE] Enable NetworkManager service"
+    gum log -l info  "[DONE] Enable NetworkManager service"
 
-    cecho blue "[START] Enable bluetooth service"
+    gum log -l info "[START] Enable bluetooth service"
     sudo systemctl enable bluetooth.service
-    cecho green "[DONE] Enable bluetooth service"
+    gum log -l info  "[DONE] Enable bluetooth service"
 
-    cecho blue "[START] Enable greetd display manager service"
+    gum log -l info "[START] Enable greetd display manager service"
     sudo systemctl enable greetd.service -f
-    cecho green "[DONE] Enable greetd display manager service"
+    gum log -l info  "[DONE] Enable greetd display manager service"
 
-    cecho blue "[START] Systemd unit"
+    gum log -l info "[START] Systemd unit"
     sudo systemctl set-default graphical.target
-    cecho green "[DONE] Systemd unit"
+    gum log -l info  "[DONE] Systemd unit"
 
-    cecho blue "[START] Default apps"
+    gum log -l info "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
     # xdg-mime default feh.desktop image/png
     xdg-mime default imv.desktop image/jpg
     # xdg-mime default gthumb.desktop image/png
     xdg-mime default brave-browser.desktop text/plain
     xdg-mime default brave-browser.desktop application/octet-stream
-    cecho green "[DONE] Default apps"
+    gum log -l info  "[DONE] Default apps"
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1

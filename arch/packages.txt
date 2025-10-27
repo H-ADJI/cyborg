@@ -33,6 +33,7 @@ gcc
 genymotion
 git-delta
 google-chrome
+greetd-tuigreet
 grep
 grim
 gthumb
@@ -102,6 +103,7 @@ ueberzugpp
 unp
 unzip
 uv
+uwsm
 vial
 virtualbox
 virtualbox-host-modules-arch

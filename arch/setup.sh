@@ -27,7 +27,7 @@ installpackages() {
         gum log -l info "[START] Installing $package"
         yay -Sq --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
         gum log -l info "[DONE] Installing $package"
-    done <~/cyborg/arch/packages-pre.txt
+    done <~/dotfiles/packages/arch/packages-pre.txt
 }
 post_install() {
     gum log -l info "[START] Copy greetd config / sessions"

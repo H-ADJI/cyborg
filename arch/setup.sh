@@ -119,6 +119,10 @@ post_install() {
     sudo systemctl enable greetd.service -f
     cecho green "[DONE] Enable greetd display manager service"
 
+    cecho blue "[START] Systemd unit"
+    sudo systemctl set-default graphical.target
+    cecho green "[DONE] Systemd unit"
+
     cecho blue "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
     # xdg-mime default feh.desktop image/png

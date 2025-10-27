@@ -30,7 +30,7 @@ installpackages() {
 }
 post_install() {
     cecho blue "[START] Copy greetd config / sessions"
-    sudo cp -r greetd /etc
+    sudo cp -r ~/dotfiles/greetd/ /etc
     cecho green "[DONE] Copy greetd config / sessions"
 
     cecho blue "[START] Change shell to use ZSH"

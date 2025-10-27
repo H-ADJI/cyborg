@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
 if [ "$DISTRO" = "arch" ]; then
     sudo pacman -Syu --noconfirm
@@ -28,5 +30,11 @@ cd cyborg || exit 1
 chmod +x install.sh
 
 gum log -l info "Dotfiles and Cyborg Repositories Downloaded"
-gum log -l info "Installation script can be run using : cyborg/install.sh"
-exec ./install.sh
+DISTRO=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
+gum log -l info "Cyborg Setup For : $DISTRO"
+if [ "$DISTRO" = "arch" ]; then
+    dir="arch"
+else
+    dir="ubuntu"
+fi
+bash "$HOME/cyborg/$dir/setup.sh"

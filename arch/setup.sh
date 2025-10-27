@@ -26,7 +26,7 @@ installpackages() {
     while read package; do
         gum log -l info "[START] Installing $package"
         yay -Sq --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
-        gum log -l info  "[DONE] Installing $package"
+        gum log -l info "[DONE] Installing $package"
     done <~/cyborg/arch/packages-pre.txt
 }
 post_install() {
@@ -50,33 +50,33 @@ post_install() {
         "3.9"
     )
     uv python install "${py_versions[@]}"
-    gum log -l info  "[DONE] Installing multiple uv python versions"
+    gum log -l info "[DONE] Installing multiple uv python versions"
 
     gum log -l info "[START] Copying assets"
     cp -r ~/dotfiles/assets ~/.config/
-    gum log -l info  "[DONE] Copying assets"
+    gum log -l info "[DONE] Copying assets"
 
     gum log -l info "[START] Installing TPM"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    gum log -l info  "[DONE] Installing TPM"
+    gum log -l info "[DONE] Installing TPM"
 
     gum log -l info "[START] Spotify file permissions"
     sudo chmod a+wr /opt/spotify
     sudo chmod a+wr /opt/spotify/Apps -R
-    gum log -l info  "[DONE] Spotify file permissions"
+    gum log -l info "[DONE] Spotify file permissions"
 
     gum log -l info "[START] Spicetify apply"
     spicetify update
     spicetify apply
-    gum log -l info  "[DONE] Spicetify apply"
+    gum log -l info "[DONE] Spicetify apply"
 
     gum log -l info "[START] transcrypt decryption"
     decrypt_secrets
-    gum log -l info  "[DONE] transcrypt decryption"
+    gum log -l info "[DONE] transcrypt decryption"
 
     gum log -l info "[START] Linking dots"
     link_dotfiles
-    gum log -l info  "[DONE] Linking dots"
+    gum log -l info "[DONE] Linking dots"
 
     gum log -l info "[START] install tmux plugins"
     sh ~/.tmux/plugins/tpm/bin/install_plugins
@@ -86,43 +86,43 @@ post_install() {
     cd ~/dotfiles/ || return 1
     stow tmuxifier
     cd || return 1
-    gum log -l info  "[DONE] link tmuxifier layouts"
+    gum log -l info "[DONE] link tmuxifier layouts"
 
     gum log -l info "[START] ssh setup"
     ssh_setup
-    gum log -l info  "[DONE] ssh setup"
+    gum log -l info "[DONE] ssh setup"
 
     gum log -l info "[START] docker post install steps"
     docker_post_install
-    gum log -l info  "[DONE] docker post install steps"
+    gum log -l info "[DONE] docker post install steps"
 
     gum log -l info "[START] Clone some repos"
     personal_repos
-    gum log -l info  "[DONE] Clone some repos"
+    gum log -l info "[DONE] Clone some repos"
 
     gum log -l info "[START] Set timezone"
     sudo timedatectl set-timezone Europe/Paris
-    gum log -l info  "[DONE] Set timezone"
+    gum log -l info "[DONE] Set timezone"
 
     gum log -l info "[START] Enable docker service"
     sudo systemctl enable docker.service
-    gum log -l info  "[DONE] Enable docker service"
+    gum log -l info "[DONE] Enable docker service"
 
     gum log -l info "[START] Enable NetworkManager service"
     sudo systemctl enable NetworkManager.service
-    gum log -l info  "[DONE] Enable NetworkManager service"
+    gum log -l info "[DONE] Enable NetworkManager service"
 
     gum log -l info "[START] Enable bluetooth service"
     sudo systemctl enable bluetooth.service
-    gum log -l info  "[DONE] Enable bluetooth service"
+    gum log -l info "[DONE] Enable bluetooth service"
 
     gum log -l info "[START] Enable greetd display manager service"
     sudo systemctl enable greetd.service -f
-    gum log -l info  "[DONE] Enable greetd display manager service"
+    gum log -l info "[DONE] Enable greetd display manager service"
 
     gum log -l info "[START] Systemd unit"
     sudo systemctl set-default graphical.target
-    gum log -l info  "[DONE] Systemd unit"
+    gum log -l info "[DONE] Systemd unit"
 
     gum log -l info "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
@@ -131,7 +131,7 @@ post_install() {
     # xdg-mime default gthumb.desktop image/png
     xdg-mime default brave-browser.desktop text/plain
     xdg-mime default brave-browser.desktop application/octet-stream
-    gum log -l info  "[DONE] Default apps"
+    gum log -l info "[DONE] Default apps"
 }
 decrypt_secrets() {
     cd ~/dotfiles/ || return 1
@@ -167,6 +167,7 @@ link_dotfiles() {
         "git"
         "nwg-look"
         "gtklock"
+        "wlogout"
         "mako"
         "starship"
         "gtk-3.0"

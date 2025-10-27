@@ -30,14 +30,6 @@ installpackages() {
     done <~/dotfiles/packages/arch/packages-pre.txt
 }
 post_install() {
-    gum log -l info "[START] Copy greetd config / sessions"
-    sudo cp -r ~/dotfiles/greetd/ /etc
-    gum log -l info "[DONE] Copy greetd config / sessions"
-
-    gum log -l info "[START] Change shell to use ZSH"
-    chsh -s "$(which zsh)"
-    gum log "[DONE] Change shell to use ZSH"
-
     gum log -l info "[START] Chosing stable rust toolchain release"
     rustup default stable
     gum log -l info "[DONE] Chosing stable rust toolchain release"
@@ -59,16 +51,6 @@ post_install() {
     gum log -l info "[START] Installing TPM"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     gum log -l info "[DONE] Installing TPM"
-
-    gum log -l info "[START] Spotify file permissions"
-    sudo chmod a+wr /opt/spotify
-    sudo chmod a+wr /opt/spotify/Apps -R
-    gum log -l info "[DONE] Spotify file permissions"
-
-    gum log -l info "[START] Spicetify apply"
-    spicetify update
-    spicetify apply
-    gum log -l info "[DONE] Spicetify apply"
 
     gum log -l info "[START] transcrypt decryption"
     decrypt_secrets
@@ -117,14 +99,12 @@ post_install() {
     gum log -l info "[DONE] Enable bluetooth service"
 
     gum log -l info "[START] Enable greetd display manager service"
-    sudo systemctl enable greetd.service -f
+    sudo systemctl enable ly.service -f
     gum log -l info "[DONE] Enable greetd display manager service"
 
     gum log -l info "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf
-    # xdg-mime default feh.desktop image/png
     xdg-mime default imv.desktop image/jpg
-    # xdg-mime default gthumb.desktop image/png
     xdg-mime default brave-browser.desktop text/plain
     xdg-mime default brave-browser.desktop application/octet-stream
     gum log -l info "[DONE] Default apps"

@@ -32,9 +32,7 @@ if [ "$DISTRO" = "arch" ]; then
 else
     dir="ubuntu"
 fi
-source "$HOME/cyborg/$dir/setup.sh"
-
-launch_setup
+bash "$HOME/cyborg/$dir/setup.sh"
 
 # -----------------------------------------------------
 # -----------------------------------------------------

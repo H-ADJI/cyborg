@@ -14,6 +14,7 @@ _installYay() {
     cd || return 1
 }
 install_AUR_helper() {
+    cd || exit 1
     if _checkCommandExists "yay"; then
         cecho blue ":: yay is already installed"
     else
@@ -217,9 +218,6 @@ personal_repos() {
     cd || exit 1
 }
 
-# main entrypoint
-launch_setup() {
-    install_AUR_helper
-    installpackages
-    post_install
-}
+install_AUR_helper
+installpackages
+post_install

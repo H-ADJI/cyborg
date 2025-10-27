@@ -59,13 +59,15 @@ post_install() {
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     cecho green "[DONE] Installing TPM"
 
-    cecho blue "[START] Installing spicetify"
-    # TODO: fix spotify install
+    cecho blue "[START] Spotify file permissions"
     sudo chmod a+wr /opt/spotify
     sudo chmod a+wr /opt/spotify/Apps -R
-    curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
-    curl -fsSL https://raw.githubusercontent.com/spicetify/marketplace/main/resources/install.sh | sh
-    cecho green "[DONE] Installing spicetify"
+    cecho green "[DONE] Spotify file permissions"
+
+    cecho blue "[START] Spicetify apply"
+    spicetify update
+    spicetify apply
+    cecho green "[DONE] Spicetify apply"
 
     cecho blue "[START] transcrypt decryption"
     decrypt_secrets

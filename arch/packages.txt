@@ -81,6 +81,8 @@ rustup
 slack-desktop-wayland
 slurp
 solaar
+spicetify-cli 
+spicetify-marketplace-bin
 spotify
 starship
 stow

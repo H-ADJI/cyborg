@@ -108,9 +108,9 @@ post_install() {
     sudo systemctl enable bluetooth.service
     cecho green "[DONE] Enable bluetooth service"
 
-    cecho blue "[START] Enable ly display manager service"
-    sudo systemctl enable ly.service -f
-    cecho green "[DONE] Enable ly display manager service"
+    cecho blue "[START] Enable greetd display manager service"
+    sudo systemctl enable greetd.service -f
+    cecho green "[DONE] Enable greetd display manager service"
 
     cecho blue "[START] Default apps"
     xdg-mime default mupdf.desktop application/pdf

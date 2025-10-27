@@ -27,7 +27,7 @@ installpackages() {
         cecho blue "[START] Installing $package"
         yay -Sq --noconfirm --noprogressbar --needed --disable-download-timeout "$package"
         cecho green "[DONE] Installing $package"
-    done <~/cyborg/arch/packages.txt
+    done <~/cyborg/arch/packages-pre.txt
 }
 post_install() {
     cecho blue "[START] Copy greetd config / sessions"

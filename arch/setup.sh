@@ -182,6 +182,7 @@ personal_repos() {
         "dicli"
         "presentations"
         ".dotfiles"
+        "homelab"
     )
     for PROJECT in "${projects[@]}"; do
         [ ! -d "$PROJECT" ] && git clone "git@github.com:H-ADJI/$PROJECT.git"

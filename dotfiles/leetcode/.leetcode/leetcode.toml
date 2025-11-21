@@ -1,0 +1,19 @@
+[code]
+editor = "nvim"
+lang = "python3"
+start_marker = "##################################################################################"
+end_marker = "##################################################################################"
+comment_problem_desc = true
+comment_leading = "#"
+inject_before = ["from typing import List \n"]
+
+[cookies]
+csrf = "aKbQVT9rBkSblucEHDTh8s4NeQ19crA7NgFec6P42xHJal5g8xZvG8WNJJwP0JkR"
+session = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfYXV0aF91c2VyX2lkIjoiODcwNjg1NiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFsbGF1dGguYWNjb3VudC5hdXRoX2JhY2tlbmRzLkF1dGhlbnRpY2F0aW9uQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjM5MDk4YTMzYTEyMmFhMTQxNGQyOTI5NzM1NjMzZTdmMzkxMjMwNGE4Y2Y0ZDI1YjVlMjMzODk4OWNiYjVkYjkiLCJzZXNzaW9uX3V1aWQiOiJmOWEzOTA3OSIsImlkIjo4NzA2ODU2LCJlbWFpbCI6ImtoYWxpbC5vLjMubGFjaEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IkgtQURKSSIsInVzZXJfc2x1ZyI6IkgtQURKSSIsImF2YXRhciI6Imh0dHBzOi8vYXNzZXRzLmxlZXRjb2RlLmNvbS91c2Vycy9hdmF0YXJzL2F2YXRhcl8xNjc1NzEwMjA3LnBuZyIsInJlZnJlc2hlZF9hdCI6MTc1MzY4NTA2OCwiaXAiOiIyYTAxOmUwYTpiODQ6Njg5MDo1MDZkOjZkZGQ6YTA2MTo1MWFjIiwiaWRlbnRpdHkiOiI2ZmZhNTcwZjUyMWU4N2U2NWM1MjllMTVhNWFhYWM2NyIsImRldmljZV93aXRoX2lwIjpbIjU4M2FlMjQzMzQ2MTc1MmU2YTAwN2I0ZjhiNzhiZjI0IiwiMmEwMTplMGE6Yjg0OjY4OTA6NTA2ZDo2ZGRkOmEwNjE6NTFhYyJdfQ.ZGnHKLFZuQb9IvgnKWtAmafgDTfeBEw23VeHXGeYgUA"
+site = "leetcode.com"
+
+[storage]
+cache = "problems-cache"
+code = "problems/python"
+root = "~/neurogenesis"
+scripts = "scripts"

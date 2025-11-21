@@ -1,7 +1,7 @@
 #pattern  filter=crypt diff=crypt merge=crypt
 #
 dotfiles/secrets/*  filter=crypt diff=crypt merge=crypt
-dotfiles/scripts/dot-config/scripts/work_setup  filter=crypt diff=crypt merge=crypt
+dotfiles/scripts/dot-config/scripts/work_setup.sh  filter=crypt diff=crypt merge=crypt
 dotfiles/ssh/dot-ssh/*  filter=crypt diff=crypt merge=crypt
 dotfiles/zsh/dot-zsh_history  filter=crypt diff=crypt merge=crypt
 dotfiles/leetcode/dot-leetcode/leetcode.toml filter=crypt diff=crypt merge=crypt
